@@ -1,6 +1,9 @@
 let MeaningAPI = async (inputText) => {
+	let API_KEY = await fetch('http://localhost:8081/api').then((response) => {
+		return response.text();
+	});
 	const formdata = new FormData();
-	formdata.append('key', process.env.API_KEY);
+	formdata.append('key', API_KEY);
 	formdata.append('txt', inputText);
 	formdata.append('lang', 'en');
 

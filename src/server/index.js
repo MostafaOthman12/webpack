@@ -1,11 +1,19 @@
 var path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
-const dotenv = require('dotenv');
+const { copyFileSync } = require('fs');
 const app = express();
 app.use(express.static('dist'));
+let dotenv = require('dotenv');
 console.log(__dirname);
 dotenv.config();
+let core = require('cors');
+app.use(core());
+
+app.get('/api', (req, res) => {
+	let API_Key = process.env.API_KEY;
+	res.send(API_Key);
+});
 
 app.get('/', function (req, res) {
 	res.sendFile('./dist/index.html', { root: __dirname + '/..' });
