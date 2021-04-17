@@ -14,12 +14,4 @@ export async function handleSubmit(event) {
 										<li>${response.agreement} </li>
 										<li>${response.confidence} </li>
 										`;
-
-	console.log('::: Form Submitted :::');
-	fetch('http://localhost:8081/test').then((res) => res.json());
 }
-/*
-Confidence;
-Model;
-Agreement;
-*/

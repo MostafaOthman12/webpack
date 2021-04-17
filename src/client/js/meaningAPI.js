@@ -1,4 +1,4 @@
-let MeaningAPI = async (inputText) => {
+async function MeaningAPI(inputText) {
 	let API_KEY = await fetch('http://localhost:8081/api').then((response) => {
 		return response.text();
 	});
@@ -23,6 +23,6 @@ let MeaningAPI = async (inputText) => {
 		.catch((error) => console.log('error', error));
 
 	return response.body;
-};
+}
 
 export { MeaningAPI };
